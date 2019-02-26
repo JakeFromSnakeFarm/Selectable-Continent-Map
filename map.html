@@ -1,0 +1,398 @@
+<html>
+<canvas id="mapCanvas" width="800" height="500" style="margin:auto"></canvas>
+<h1 id="continent"></h1>
+<script>
+	const mapC = document.getElementById("mapCanvas"), mapCtx = mapC.getContext("2d")
+var currentContinent = "";
+//mapCtx.fillRect(0,0,mapC.width,mapC.height)
+window.onload = function() {
+mapC.addEventListener('mousemove', function(e){
+  let mouseP = calculateMousePos(e)
+  checkHover(mouseP);
+})
+mapC.addEventListener('click', function() {
+  document.getElementById("continent").innerHTML = currentContinent //output
+})
+}
+
+function calculateMousePos(evt) {
+	let rect = mapC.getBoundingClientRect(), root = document.documentElement;
+	let mouseX = Math.round(evt.clientX - rect.left),  mouseY= Math.round(evt.clientY - rect.top);
+	return {
+		x:mouseX,
+		y:mouseY
+	};
+}
+
+function checkHover(mouseCoord) {
+  switch(true) {
+    case ((mouseCoord.x <= 330 && mouseCoord.y <= 120) || ((mouseCoord.x <= 230 && mouseCoord.x >= 30) && (mouseCoord.y <= 260 && mouseCoord.y >= 120))):
+      if(currentContinent != "North America")
+        currentContinent = "North America"
+      break;
+      
+    case (((mouseCoord.x <= 270 && mouseCoord.x >= 120) && mouseCoord.y >= 260)):
+      if(currentContinent != "South America")
+        currentContinent = "South America"
+      break;
+      
+    case (((mouseCoord.x <= 445 && mouseCoord.x >= 330) && (mouseCoord.y <= 120 && mouseCoord.y >= 30)) || ((mouseCoord.x <= 420 && mouseCoord.x >= 320) && (mouseCoord.y <= 160 && mouseCoord.y >= 120))):
+      if(currentContinent != "Europe")
+        currentContinent = "Europe"
+      break;
+    
+    case (((mouseCoord.x <= 440 && mouseCoord.x >= 300) && (mouseCoord.y <= 420 && mouseCoord.y >= 160)) || ((mouseCoord.x <= 490 && mouseCoord.x >= 440) && (mouseCoord.y <= 390 && mouseCoord.y >= 240))):
+      if(currentContinent != "Africa")
+        currentContinent = "Africa"
+      break;
+      
+    case (((mouseCoord.x <= 800 && mouseCoord.x >= 690) && (mouseCoord.y <= 470 && mouseCoord.y >= 290)) || ((mouseCoord.x <= 690 && mouseCoord.x >= 640) && (mouseCoord.y <= 430 && mouseCoord.y >= 330))):
+      if(currentContinent != "Australia")
+        currentContinent = "Australia"
+      break;
+      
+    case (((mouseCoord.x <= 775 && mouseCoord.x >= 445) && (mouseCoord.y <= 240)) || ((mouseCoord.x <= 690 && mouseCoord.x >= 600) && (mouseCoord.y <= 320 && mouseCoord.y >= 240)) || ((mouseCoord.x <= 445 && mouseCoord.x >= 420) && (mouseCoord.y <= 159 && mouseCoord.y >= 120))):
+      if(currentContinent != "Asia")
+        currentContinent = "Asia"
+      break;
+  }
+}
+
+// mapCtx.strokeRect(0,0,330,120) //NA
+// mapCtx.strokeRect(30,120,200,140)
+
+// mapCtx.strokeRect(120,260,150,230) //SA
+
+// mapCtx.strokeRect(330,30,115,90) //Eu
+// mapCtx.strokeRect(320,120,100,40)
+                                                                  //Bounding boxes
+// mapCtx.strokeRect(300,160,140,260) //Africa
+// mapCtx.strokeRect(440,240,50,150)
+
+// mapCtx.strokeRect(445,0,300,240)
+// mapCtx.strokeRect(420,120,25,39) //Asia
+// mapCtx.strokeRect(600,240,90,80)
+
+// mapCtx.strokeRect(690,290,110,180) //Au
+// mapCtx.strokeRect(640,330,50,100)
+
+
+mapCtx.fillStyle = "#308DCE"
+mapCtx.lineTo(4,80)
+mapCtx.lineTo(52,44)
+mapCtx.lineTo(183,46)
+mapCtx.lineTo(155,71)
+mapCtx.lineTo(169,93)
+mapCtx.lineTo(182,70)
+mapCtx.lineTo(215,70)
+mapCtx.lineTo(231,107)
+mapCtx.lineTo(193,124)
+mapCtx.lineTo(150,171) //NA
+mapCtx.lineTo(144,189)
+mapCtx.lineTo(132,175)
+mapCtx.lineTo(98,183)
+mapCtx.lineTo(103,222)
+mapCtx.lineTo(119,211)
+mapCtx.lineTo(140,261)
+mapCtx.lineTo(84,218)
+mapCtx.lineTo(64,188)
+mapCtx.lineTo(60,204)
+mapCtx.lineTo(46,157)
+mapCtx.lineTo(65,130)
+mapCtx.lineTo(65,80)
+mapCtx.closePath()
+mapCtx.moveTo(126,30)
+mapCtx.lineTo(151,30)
+mapCtx.lineTo(140,41)
+mapCtx.closePath()
+mapCtx.moveTo(158,32)
+mapCtx.lineTo(170,35)
+mapCtx.lineTo(162,41)
+mapCtx.closePath()
+mapCtx.moveTo(182,26)
+mapCtx.lineTo(188,23)
+mapCtx.lineTo(194,28)
+mapCtx.lineTo(183,33)
+mapCtx.closePath()
+mapCtx.moveTo(210,17)
+mapCtx.lineTo(237,14)
+mapCtx.lineTo(210,24)
+mapCtx.closePath()
+mapCtx.moveTo(199,29)
+mapCtx.lineTo(217,31)
+mapCtx.lineTo(232,52)
+mapCtx.lineTo(215,64)
+mapCtx.lineTo(206,57)
+mapCtx.lineTo(218,50)
+mapCtx.lineTo(193,34)
+mapCtx.closePath()
+mapCtx.moveTo(198,42)
+mapCtx.lineTo(198,59)
+mapCtx.lineTo(187,52)
+mapCtx.closePath()
+mapCtx.moveTo(244,15)
+mapCtx.lineTo(333,12)
+mapCtx.lineTo(311,38)
+mapCtx.lineTo(283,52)
+mapCtx.lineTo(266,75)
+mapCtx.lineTo(252,59)
+mapCtx.lineTo(257,31)
+mapCtx.closePath()
+mapCtx.moveTo(130,207)
+mapCtx.lineTo(131,207)
+mapCtx.lineTo(143,204)
+mapCtx.lineTo(152,210)
+mapCtx.lineTo(148,212)
+mapCtx.lineTo(143,208) //Cuba & other
+mapCtx.closePath()
+mapCtx.moveTo(158,219)
+mapCtx.lineTo(164,215)
+mapCtx.lineTo(168,219)
+mapCtx.closePath();
+mapCtx.fill()
+
+mapCtx.fillStyle = "#6FCE30"
+mapCtx.beginPath()
+mapCtx.moveTo(378,157)
+mapCtx.lineTo(380,168)
+mapCtx.lineTo(401,179)
+mapCtx.lineTo(412,171)
+mapCtx.lineTo(439,179)
+mapCtx.lineTo(431,187)
+mapCtx.lineTo(463,249)
+mapCtx.lineTo(486,246)
+mapCtx.lineTo(458,302)
+mapCtx.lineTo(459,339)
+mapCtx.lineTo(442,351)
+mapCtx.lineTo(438,397)
+mapCtx.lineTo(423,415) //Africa
+mapCtx.lineTo(401,414)
+mapCtx.lineTo(378,355)
+mapCtx.lineTo(388,337)
+mapCtx.lineTo(375,272)
+mapCtx.lineTo(339,276)
+mapCtx.lineTo(310,264)
+mapCtx.lineTo(305,210)
+mapCtx.lineTo(333,163)
+mapCtx.closePath()
+mapCtx.moveTo(481,340)
+mapCtx.lineTo(469,379)
+mapCtx.lineTo(461,360)
+mapCtx.closePath()
+mapCtx.fill()
+
+mapCtx.fillStyle = "#FE4800"
+mapCtx.beginPath()
+mapCtx.moveTo(330,126)
+mapCtx.lineTo(328,153)
+mapCtx.lineTo(345,153)
+mapCtx.lineTo(344,150)
+mapCtx.lineTo(373,126)
+mapCtx.lineTo(392,148)
+mapCtx.lineTo(393,140)
+mapCtx.lineTo(398,139)
+mapCtx.lineTo(384,123)
+mapCtx.lineTo(401,135)
+mapCtx.lineTo(411,156)
+mapCtx.lineTo(418,140)
+mapCtx.lineTo(426,131)
+mapCtx.lineTo(432,117)
+mapCtx.lineTo(449,130)
+mapCtx.lineTo(443,53)
+mapCtx.lineTo(421,38)
+mapCtx.lineTo(392,44)
+mapCtx.lineTo(370,63)
+mapCtx.lineTo(367,78)
+mapCtx.lineTo(376,73)
+mapCtx.lineTo(385,84)
+mapCtx.lineTo(403,52) //Eu
+mapCtx.lineTo(404,67)
+mapCtx.lineTo(416,70)
+mapCtx.lineTo(402,84)
+mapCtx.lineTo(378,91)
+mapCtx.lineTo(372,81)
+mapCtx.lineTo(370,94)
+mapCtx.lineTo(354,103)
+mapCtx.lineTo(345,111)
+mapCtx.lineTo(345,126)
+mapCtx.closePath()
+mapCtx.moveTo(339,98)
+mapCtx.lineTo(338,89)
+mapCtx.lineTo(335,96)
+mapCtx.closePath()
+mapCtx.moveTo(342,96)
+mapCtx.lineTo(347,90)
+mapCtx.lineTo(348,74)
+mapCtx.lineTo(351,91)
+mapCtx.lineTo(345,99)
+mapCtx.closePath()
+mapCtx.fill()
+
+mapCtx.fillStyle = "#B20C81"
+mapCtx.beginPath()
+mapCtx.moveTo(446,47)
+mapCtx.lineTo(485,46)
+mapCtx.lineTo(495,30)
+mapCtx.lineTo(518,32)
+mapCtx.lineTo(538,18)
+mapCtx.lineTo(609,36)
+mapCtx.lineTo(729,51)
+mapCtx.lineTo(720,55)
+mapCtx.lineTo(726,68)
+mapCtx.lineTo(720,75)
+mapCtx.lineTo(710,78)
+mapCtx.lineTo(721,104)
+mapCtx.lineTo(702,93)
+mapCtx.lineTo(702,71)
+mapCtx.lineTo(670,77)
+mapCtx.lineTo(661,93)
+mapCtx.lineTo(678,104)
+mapCtx.lineTo(684,130)
+mapCtx.lineTo(672,144)
+mapCtx.lineTo(677,166)
+mapCtx.lineTo(662,148)
+mapCtx.lineTo(649,143)
+mapCtx.lineTo(647,152)
+mapCtx.lineTo(666,184)
+mapCtx.lineTo(656,207)
+mapCtx.lineTo(625,220)
+mapCtx.lineTo(642,244)
+mapCtx.lineTo(630,260)
+mapCtx.lineTo(621,246)
+mapCtx.lineTo(621,263)
+mapCtx.lineTo(628,271)
+mapCtx.lineTo(627,276)
+mapCtx.lineTo(613,263)
+mapCtx.lineTo(612,227)
+mapCtx.lineTo(601,231)
+mapCtx.lineTo(587,208)
+mapCtx.lineTo(563,236)
+mapCtx.lineTo(565,252)
+mapCtx.lineTo(557,260)
+mapCtx.lineTo(542,209)
+mapCtx.lineTo(537,213)
+mapCtx.lineTo(524,195)
+mapCtx.lineTo(502,192)
+mapCtx.lineTo(485,182)
+mapCtx.lineTo(479,182)
+mapCtx.lineTo(486,201)
+mapCtx.lineTo(498,194)
+mapCtx.lineTo(510,209)
+mapCtx.lineTo(470,241)
+mapCtx.lineTo(443,187)
+mapCtx.lineTo(444,157)
+mapCtx.lineTo(422,156)
+mapCtx.lineTo(422,140)
+mapCtx.lineTo(429,141)
+mapCtx.lineTo(434,123)
+mapCtx.lineTo(453,137)
+mapCtx.closePath()
+mapCtx.moveTo(684,98)
+mapCtx.lineTo(698,114)
+mapCtx.lineTo(693,121)
+mapCtx.closePath()
+mapCtx.moveTo(694,128)
+mapCtx.lineTo(707,126)
+mapCtx.lineTo(707,135)
+mapCtx.lineTo(699,137)
+mapCtx.lineTo(705,155)
+mapCtx.lineTo(695,170)
+mapCtx.lineTo(686,164)
+mapCtx.lineTo(698,151)
+mapCtx.closePath()
+mapCtx.moveTo(675,230)
+mapCtx.lineTo(687,247) //Asia
+mapCtx.lineTo(683,251)
+mapCtx.lineTo(674,246)
+mapCtx.closePath()
+mapCtx.moveTo(682,259)
+mapCtx.lineTo(687,257)
+mapCtx.lineTo(687,270)
+mapCtx.closePath()
+mapCtx.moveTo(683,283)
+mapCtx.lineTo(677,301)
+mapCtx.lineTo(669,307)
+mapCtx.lineTo(670,289)
+mapCtx.closePath()
+mapCtx.moveTo(665,264)
+mapCtx.lineTo(665,302)
+mapCtx.lineTo(648,298)
+mapCtx.lineTo(641,282)
+mapCtx.lineTo(650,282)
+mapCtx.closePath()
+mapCtx.moveTo(623,281)
+mapCtx.lineTo(635,300)
+mapCtx.lineTo(630,310)
+mapCtx.lineTo(611,275)
+mapCtx.lineTo(618,283)
+mapCtx.closePath()
+mapCtx.moveTo(638,312)
+mapCtx.lineTo(649,311)
+mapCtx.lineTo(658,321)
+mapCtx.closePath()
+mapCtx.fill()
+
+mapCtx.fillStyle = "#FEDD00"
+mapCtx.beginPath()
+mapCtx.moveTo(703,292)
+mapCtx.lineTo(714,299)
+mapCtx.lineTo(727,299)
+mapCtx.lineTo(747,309)
+mapCtx.lineTo(744,319)
+mapCtx.lineTo(749,326)
+mapCtx.lineTo(711,305)
+mapCtx.closePath()
+mapCtx.moveTo(731,328)
+mapCtx.lineTo(737,334)
+mapCtx.lineTo(738,363)
+mapCtx.lineTo(749,382)
+mapCtx.lineTo(730,431)
+mapCtx.lineTo(707,429)
+mapCtx.lineTo(707,423)
+mapCtx.lineTo(697,419)
+mapCtx.lineTo(688,403)
+mapCtx.lineTo(678,411)
+mapCtx.lineTo(646,415)
+mapCtx.lineTo(646,374)
+mapCtx.lineTo(683,341) //Au
+mapCtx.lineTo(697,341)
+mapCtx.lineTo(699,334)
+mapCtx.lineTo(715,337)
+mapCtx.lineTo(715,345)
+mapCtx.lineTo(726,348)
+mapCtx.closePath()
+mapCtx.moveTo(715,441)
+mapCtx.lineTo(713,451)
+mapCtx.lineTo(708,446)
+mapCtx.closePath()
+mapCtx.moveTo(774,446)
+mapCtx.lineTo(764,462)
+mapCtx.lineTo(756,458)
+mapCtx.closePath()
+mapCtx.moveTo(787,435)
+mapCtx.lineTo(792,426)
+mapCtx.lineTo(798,431)
+mapCtx.lineTo(791,440)
+mapCtx.closePath()
+mapCtx.fill()
+
+mapCtx.fillStyle = "#30CCCE"
+mapCtx.beginPath();
+mapCtx.moveTo(145,267)
+mapCtx.lineTo(198,263)
+mapCtx.lineTo(211,270)
+mapCtx.lineTo(215,289)
+mapCtx.lineTo(258,310)
+mapCtx.lineTo(246,365)
+mapCtx.lineTo(227,384) //SA
+mapCtx.lineTo(225,407)
+mapCtx.lineTo(198,436)
+mapCtx.lineTo(198,469)
+mapCtx.lineTo(210,487)
+mapCtx.lineTo(167,446)
+mapCtx.lineTo(170,366)
+mapCtx.lineTo(136,299)
+mapCtx.closePath()
+mapCtx.fill()
+</script>
+</html>
